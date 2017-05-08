@@ -112,23 +112,12 @@
 
 								removed = prevItems[oldIndex];
 
-								if (evt.clone) {
-									removed = angular.copy(removed);
-									prevItems.splice(Sortable.utils.index(evt.clone, sortable.options.draggable), 0, prevItems.splice(oldIndex, 1)[0]);
-
-									if (evt.from.contains(evt.clone)) {
-										evt.from.removeChild(evt.clone);
-									}
-								}
-								else {
-									prevItems.splice(oldIndex, 1);
-								}
-
+								prevItems.splice(oldIndex, 1);
+								
 								items.splice(newIndex, 0, removed);
 
-								evt.from.insertBefore(evt.item, nextSibling); // revert element
-							}
-							else {
+							} else {
+								
 								items.splice(newIndex, 0, items.splice(oldIndex, 1)[0]);
 
 								// move ng-repeat comment node to right position
