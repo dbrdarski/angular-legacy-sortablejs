@@ -112,7 +112,9 @@
 
 								removed = prevItems[oldIndex];
 
-								prevItems.splice(oldIndex, 1);
+								console.log([111111111111, prevItems]);
+
+								!prevItems.clone && prevItems.splice(oldIndex, 1);
 								
 								items.splice(newIndex, 0, removed);
 
