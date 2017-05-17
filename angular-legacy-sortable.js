@@ -112,14 +112,16 @@
 
 								removed = prevItems[oldIndex];
 
-								console.log([111111111111, prevItems]);
-
-								!prevItems.clone && prevItems.splice(oldIndex, 1);
+								if(prevItems.clone){
+									prevItems[oldIndex] = JSON.parse(JSON.stringify(prevItems[oldIndex]));
+								} else{
+									prevItems.splice(oldIndex, 1);
+								}
 								
 								items.splice(newIndex, 0, removed);
 
 							} else {
-								
+
 								items.splice(newIndex, 0, items.splice(oldIndex, 1)[0]);
 
 								// move ng-repeat comment node to right position
